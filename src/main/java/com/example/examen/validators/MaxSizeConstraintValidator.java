@@ -4,7 +4,7 @@
  */
 package com.example.examen.validators;
 
-import com.example.examen.entity.Opcion;
+import com.example.examen.entity.OpcionEntity;
 import java.util.List;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -13,10 +13,10 @@ import javax.validation.ConstraintValidatorContext;
  *
  * @author Carlos Ruiz <Carlos Ruiz>
  */
-public class MaxSizeConstraintValidator implements ConstraintValidator<ConstraintAnnotations.MaxSizeConstraint, List<Opcion>> {
+public class MaxSizeConstraintValidator implements ConstraintValidator<ConstraintAnnotations.MaxSizeConstraint, List<OpcionEntity>> {
 
     @Override
-    public boolean isValid(List<Opcion> values, ConstraintValidatorContext context) {
+    public boolean isValid(List<OpcionEntity> values, ConstraintValidatorContext context) {
         return values.size() == 4;
     }
 }

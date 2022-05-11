@@ -2,13 +2,7 @@ package com.example.examen.entity;
 
 import com.example.examen.validators.ConstraintAnnotations.MaxSizeConstraint;
 import com.example.examen.validators.ConstraintAnnotations.OneCorrectAnswerConstraint;
-import com.example.examen.validators.MaxSizeConstraintValidator;
-import com.example.examen.validators.OneCorrectAnswerConstraintValidator;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.util.List;
-import javax.validation.Constraint;
-import javax.validation.Payload;
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -16,6 +10,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 
 /**
  *
@@ -23,8 +19,10 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class Pregunta {
+public class PreguntaEntity {
 
+    @Id
+    private String id;
     @NotNull
     @NotEmpty(message = "La pregunta no puede ser vacía.")
     private String pregunta;
@@ -32,19 +30,23 @@ public class Pregunta {
     @MaxSizeConstraint
     @OneCorrectAnswerConstraint
     @Valid
-    private List<Opcion> opciones;
+    private List<OpcionEntity> opciones;
     @NotNull
     @Min(1)
     @Max(100)
-    private Integer peso;
+    private Integer puntaje;
+    private OpcionEntity respuesta;
 
-    public Pregunta() {
+    public PreguntaEntity() {
+        this.id = new ObjectId().toString();
     }
 
-    public Pregunta(String pregunta, List<Opcion> opciones, Integer peso) {
+    public PreguntaEntity(String pregunta, List<OpcionEntity> opciones, Integer puntaje, OpcionEntity respuesta) {
+        this.id = new ObjectId().toString();
         this.pregunta = pregunta;
         this.opciones = opciones;
-        this.peso = peso;
+        this.puntaje = puntaje;
+        this.respuesta = respuesta;
     }
 
 }

@@ -36,14 +36,21 @@ public class ApiConstants {
 
         public static class AsignarExamen {
 
-            public static final String URL = "/asigar-examen";
+            public static final String URL = "/asignar-examen";
             public static final String URL_SUMMARY = "Asignar examen";
             public static final String URL_DESCRIPTION = "Dada una fechade presentación del examen en zona horaria de Bogotá se debe recibir la fecha de  presentación para cada estudiante en su zona horaria correspondiente. ";
         }
 
+        public static class ObtenerExamenesAsignados {
+
+            public static final String URL = "/obtener-examenes-asignados";
+            public static final String URL_SUMMARY = "Obtner examenes asignados";
+            public static final String URL_DESCRIPTION = "Obtiene los exámenes asignados de un estudiante. ";
+        }
+
         public static class RecopilarRespuestas {
 
-            public static final String URL = "/recopilar-respuestas";
+            public static final String URL = "/recopilar-respuestas/{asignacionId}";
             public static final String URL_SUMMARY = "Recopilar respuestas";
             public static final String URL_DESCRIPTION = "Se debe poder recopilar todas las respuestas de un estudiante en un examen que se le ha asignado.";
         }
@@ -54,6 +61,7 @@ public class ApiConstants {
             public static final String URL_SUMMARY = "Calificar examen";
             public static final String URL_DESCRIPTION = "Una vez recibida las respuestas de un estudiante se deberá entregarla calificación de este.";
         }
+        
 
     }
 }

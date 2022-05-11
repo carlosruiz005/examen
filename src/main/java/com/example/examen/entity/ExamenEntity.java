@@ -1,6 +1,5 @@
 package com.example.examen.entity;
 
-import com.example.examen.validators.ConstraintAnnotations;
 import com.example.examen.validators.ConstraintAnnotations.TotalScoreConstraint;
 import java.util.Date;
 import java.util.List;
@@ -20,7 +19,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Setter
 @Document(collection = "examenes")
-public class Examen {
+public class ExamenEntity {
 
     @Id
     private String id;
@@ -32,15 +31,15 @@ public class Examen {
     @NotNull
     @Valid
     @TotalScoreConstraint
-    private List<Pregunta> preguntas;
+    private List<PreguntaEntity> preguntas;
     private Date created;
     private Date updated;
     private Date deleted;
 
-    public Examen() {
+    public ExamenEntity() {
     }
 
-    public Examen(String id, String nombre, String descripcion, List<Pregunta> preguntas, Date created, Date updated, Date deleted) {
+    public ExamenEntity(String id, String nombre, String descripcion, List<PreguntaEntity> preguntas, Date created, Date updated, Date deleted) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -49,5 +48,4 @@ public class Examen {
         this.updated = updated;
         this.deleted = deleted;
     }
-
 }

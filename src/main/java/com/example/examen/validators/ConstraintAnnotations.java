@@ -41,7 +41,7 @@ public class ConstraintAnnotations {
     @Retention(RetentionPolicy.RUNTIME)
     public @interface TotalScoreConstraint {
 
-        String message() default "El total de peso debe ser igual a 100.";
+        String message() default "El total de puntaje debe ser igual a 100.";
 
         Class<?>[] groups() default {};
 
